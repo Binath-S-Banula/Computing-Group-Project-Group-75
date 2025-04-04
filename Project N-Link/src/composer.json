@@ -1,0 +1,11 @@
+{
+    "name": "mypc/timetables_test",
+    "autoload": {
+        "psr-4": {
+            "Mypc\\TimetablesTest\\": "src/"
+        }
+    },
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.1"
+    }
+}
