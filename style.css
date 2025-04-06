@@ -203,23 +203,26 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    margin: 20px 0;
+    margin: 20px auto;
     overflow: hidden;
+    max-width: 90%; /* Added max-width */
+    width: 800px; /* Set a specific width */
 }
 
 .cu-sessions-title {
     text-align: center;
     font-weight: bold;
-    padding: 15px;
+    padding: 12px; /* Reduced padding */
     margin: 0;
     border-bottom: 1px solid #eee;
+    font-size: 1.2rem; /* Slightly smaller font */
 }
 
 .cu-session-item {
     background-color: var(--nsbm-light-green);
-    margin: 15px;
+    margin: 12px; /* Reduced margin */
     border-radius: 5px;
-    padding: 15px;
+    padding: 12px; /* Reduced padding */
     color: white;
     position: relative;
 }
