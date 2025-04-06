@@ -695,6 +695,72 @@ body {
     font-weight: 500;
 }
 
+/* Detailed Session Styles */
+.cu-session-item-detailed {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.session-title {
+    color: var(--nsbm-dark-blue);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--nsbm-green);
+    padding-bottom: 0.5rem;
+}
+
+.session-info {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.session-info p {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.session-info i {
+    color: var(--nsbm-green);
+    margin-right: 10px;
+    width: 20px;
+}
+
+.session-description h3 {
+    color: var(--nsbm-blue);
+    margin: 1.5rem 0 1rem;
+    font-size: 1.3rem;
+}
+
+.session-description p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.session-description ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.session-description ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+.session-description ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--nsbm-green);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .header-container {
