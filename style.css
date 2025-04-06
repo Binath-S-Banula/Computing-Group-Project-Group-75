@@ -260,14 +260,16 @@ body {
 /* Contact cards */
 .cu-contact-container {
     display: flex;
-    margin: 20px 0;
+    margin: 30px auto;
     border-radius: 8px;
     overflow: hidden;
+    max-width: 90%;
+    width: 1500px;
 }
 
 .cu-contact-card {
     flex: 1;
-    padding: 20px;
+    padding: 40px;  /* Reduced padding */
     color: white;
     text-align: center;
 }
@@ -291,7 +293,8 @@ body {
 }
 
 .cu-contact-info {
-    margin: 5px 0;
+    margin: 3px 0;  /* Reduced margin */
+    font-size: 0.9rem;  /* Slightly smaller font */
 }
 
 
