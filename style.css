@@ -647,7 +647,53 @@ body {
   ------------------------------*/
   
 
+/* Thank You Page Styles */
+.thank-you-container {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
 
+.thank-you-content {
+    text-align: center;
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 90%;
+}
+
+.thank-you-icon {
+    color: var(--nsbm-green);
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+.thank-you-content h1 {
+    color: var(--nsbm-dark-blue);
+    margin-bottom: 1rem;
+}
+
+.thank-you-content p {
+    color: #666;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.thank-you-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.thank-you-buttons .btn {
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+}
 
 /* Responsive */
 @media (max-width: 768px) {

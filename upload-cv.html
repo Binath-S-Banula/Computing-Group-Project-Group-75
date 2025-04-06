@@ -58,8 +58,10 @@
     <script>
         document.getElementById('cvUploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('CV submitted successfully! We will review your application and get back to you soon.');
-            this.reset();
+            // Simulate form submission delay
+            setTimeout(() => {
+                window.location.href = 'thank-you.html';
+            }, 1000);
         });
     </script>
 </body>
