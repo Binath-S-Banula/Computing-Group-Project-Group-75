@@ -206,7 +206,7 @@ body {
     margin: 20px auto;
     overflow: hidden;
     max-width: 90%; /* Added max-width */
-    width: 800px; /* Set a specific width */
+    width: 1400px; /* Set a specific width */
 }
 
 .cu-sessions-title {
@@ -215,7 +215,7 @@ body {
     padding: 12px; /* Reduced padding */
     margin: 0;
     border-bottom: 1px solid #eee;
-    font-size: 1.2rem; /* Slightly smaller font */
+    font-size: 1.5rem; /* Slightly smaller font */
 }
 
 .cu-session-item {
