@@ -136,14 +136,18 @@ body {
 /* Banner */
 .cu-banner-container {
     position: relative;
-    margin: 20px 0;
+    margin: 15px auto; /* Reduced margin */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 90%; /* Added max-width to make container smaller */
+    height: 400px; /* Set a fixed height */
 }
 
 .cu-banner-img {
     width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the container properly */
     display: block;
 }
 
@@ -153,18 +157,18 @@ body {
     left: 0;
     width: 100%;
     background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    padding: 30px 20px 20px;
+    padding: 20px 15px 15px; /* Reduced padding */
     color: white;
 }
 
 .cu-banner-title {
-    font-size: 2rem;
+    font-size: 1.75rem; /* Reduced font size */
     font-weight: bold;
     margin: 0 0 5px 0;
 }
 
 .cu-banner-subtitle {
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Reduced font size */
     margin: 0;
     opacity: 0.9;
 }
