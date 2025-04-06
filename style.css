@@ -280,6 +280,16 @@ body {
 
 .cu-contact-card.blue {
     background-color: var(--nsbm-blue);
+    position: relative;
+    z-index: 1;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.cu-contact-card.blue:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .cu-contact-icon {
