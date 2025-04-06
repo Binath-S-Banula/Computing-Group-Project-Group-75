@@ -222,7 +222,7 @@ body {
     background-color: var(--nsbm-light-green);
     margin: 12px; /* Reduced margin */
     border-radius: 5px;
-    padding: 12px; /* Reduced padding */
+    padding: 15px; /* Reduced padding */
     color: white;
     position: relative;
 }
