@@ -1,0 +1,170 @@
+:root {
+    --primary-green: #1e8e4e;
+    --primary-light: #e6f7ed;
+    --primary-dark: #146c3c;
+    --accent-green: #34c774;
+    --neutral-light: #f8f9fa;
+    --neutral-medium: #e2e3e5;
+    --neutral-dark: #6c757d;
+    --white: #ffffff;
+    --danger: #dc3545;
+    --danger-light: #f8d7da;
+    --danger-dark: #842029;
+    --warning: #ffc107;
+    --warning-light: #fff3cd;
+    --warning-dark: #664d03;
+    --border-radius: 0.75rem;
+    --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+}
+
+.dashboard-header {
+    background-color: var(--primary-green);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.dashboard-title {
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-subtitle {
+    color: var(--neutral-medium);
+    font-size: 0.95rem;
+}
+
+.card {
+    background-color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-bottom: 30px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+    border-radius: 50px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: 0 4px 10px rgba(30, 142, 78, 0.3);
+}
+
+.alert {
+    border-radius: var(--border-radius);
+    border: none;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.alert-warning {
+    background-color: var(--warning-light);
+    border-color: var(--warning);
+    color: var(--warning-dark);
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+thead {
+    background-color: var(--primary-light);
+}
+
+th {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    font-weight: 600;
+    border-bottom: none;
+    padding: 1rem;
+}
+
+td {
+    padding: 16px !important;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background-color: var(--primary-light);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--neutral-dark);
+}
+
+.empty-state i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: var(--neutral-medium);
+}
+
+.subject-badge {
+    display: inline-block;
+    padding: 0.35em 0.65em;
+    font-size: 0.85em;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--primary-dark);
+    background-color: var(--primary-light);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 50rem;
+    margin-right: 0.5rem;
+}
+
+.lecturer-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.lecturer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.lecturer-name {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0;
+}
+
+.lecturer-role {
+    color: var(--neutral-dark);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
