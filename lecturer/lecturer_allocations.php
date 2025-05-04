@@ -51,8 +51,8 @@ $allocations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Degree</th>
                                 <th>Subject</th>
+                                <th>Degree</th>
                                 <th>Batch</th>
                             </tr>
                         </thead>
@@ -60,11 +60,11 @@ $allocations = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <?php foreach ($allocations as $index => $row): ?>
                                 <tr>
                                     <td><?= $index + 1 ?></td>
-                                    <td><?= htmlspecialchars($row['degree_name']) ?></td>
                                     <td>
                                         <span class="subject-badge"><?= htmlspecialchars($row['subject_code']) ?></span>
                                         <?= htmlspecialchars($row['subject_name']) ?>
                                     </td>
+                                    <td><?= htmlspecialchars($row['degree_name']) ?></td>
                                     <td><?= htmlspecialchars($row['batch_name']) ?></td>
                                 </tr>
                             <?php endforeach; ?>
