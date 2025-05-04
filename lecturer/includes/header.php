@@ -68,8 +68,8 @@ $lecturer_name = $_SESSION['lecturer_name'];
                     </a>
                 </li>
                 <li>
-                    <a href="appointments.php" class="nav-link <?= $current_page == 'appointments.php' ? 'active' : '' ?>">
-                        <i class="bi bi-calendar-check"></i>Appointments
+                    <a href="announcements.php" class="nav-link <?= $current_page == 'announcements.php' ? 'active' : '' ?>">
+                        <i class="bi bi-calendar-check"></i>Announcements
                     </a>
                 </li>
                 <li>
