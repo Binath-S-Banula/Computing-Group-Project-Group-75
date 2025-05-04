@@ -1,0 +1,308 @@
+                .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            text-decoration: none;
+        }
+
+        .add-btn{
+            font-weight: 600;
+            background-color: var(--primary-light);
+            color: var(--primary-blue);
+            border: none;
+            letter-spacing: 1px;
+        }
+
+        .add-btn:hover{
+            background-color: var(--primary-light);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .btn-sm {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .btn-warning {
+            background-color: var(--warning-orange);
+            color: var(--white);
+        }
+
+        .btn-warning:hover {
+            color: var(--white);
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-info {
+            background-color: var(--accent-teal);
+            color: var(--white);
+        }
+
+        .btn-info:hover {
+            color: var(--white);
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background-color: var(--error-red);
+            color: var(--white);
+        }
+
+        .btn-danger:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--neutral-medium);
+            color: var(--neutral-dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--neutral-dark);
+            color: var(--white);
+        }
+
+        
+
+        .no-doctors-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .no-doctors-container i {
+            color: var(--primary-blue);
+            opacity: 0.7;
+            margin-bottom: 1.5rem;
+            font-size: 5rem; 
+        }
+        .no-doctors-container p {
+            font-size: 20px;
+             color: var(--neutral-dark);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+        
+
+
+
+  /* Table styles */
+.table-responsive {
+  padding: 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  /* box-shadow: var(--box-shadow); */
+  /* margin-top: 1.5rem; */
+}
+
+.table {
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0 0.75rem;
+  width: 100%;
+}
+
+.table thead th {
+  background-color: var(--primary-light);
+  color: var(--primary-blue);
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  border-bottom: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+  background-color: var(--white);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  margin-bottom: 0.75rem;
+}
+
+.table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.table tbody td {
+  padding: 1.2rem 1rem;
+  vertical-align: middle;
+  border-top: none;
+  border-bottom: 1px solid var(--neutral-medium);
+}
+
+.table tbody tr td:first-child {
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.table tbody tr td:last-child {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+
+        
+/* Enhanced Modal Styling */
+.medical-modal .modal-dialog {
+    max-width: 500px;
+  }
+  
+  .medical-modal .modal-content {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+  }
+  
+  .medical-modal .modal-header {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--neutral-medium);
+    position: relative;
+  }
+  
+  .medical-modal .modal-header.primary-header {
+    background-color: var(--primary-blue);
+    color: var(--white);
+  }
+  
+  .medical-modal .modal-header.danger-header {
+    background-color: var(--error-red);
+    color: var(--white);
+  }
+  
+  .medical-modal .modal-title {
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  
+  .medical-modal .btn-close {
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 0.5rem;
+    opacity: 0.8;
+    transition: var(--transition);
+  }
+  
+  .medical-modal .btn-close:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  .medical-modal .modal-body {
+    padding: 1.75rem 1.5rem;
+    background-color: var(--white);
+  }
+  
+  .medical-modal .modal-footer {
+    padding: 1.25rem 1.5rem;
+    border-top: 1px solid var(--neutral-medium);
+    background-color: var(--neutral-light);
+  }
+  
+  .medical-modal .form-label {
+    font-weight: 500;
+    color: var(--neutral-dark);
+    margin-bottom: 0.5rem;
+  }
+  
+  .medical-modal .form-control {
+    border-radius: 0.5rem;
+    border: 1px solid var(--neutral-medium);
+    padding: 0.75rem 1rem;
+    transition: var(--transition);
+  }
+  
+  .medical-modal .form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(44, 122, 187, 0.15);
+  }
+  
+  .medical-modal .btn {
+    border-radius: 0.5rem;
+    padding: 0.625rem 1.25rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+  
+  .medical-modal .btn-primary {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+  }
+  
+  .medical-modal .btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+  
+  .medical-modal .btn-danger {
+    background-color: var(--error-red);
+    border-color: var(--error-red);
+  }
+  
+  .medical-modal .btn-danger:hover {
+    background-color: #C53030;
+    border-color: #C53030;
+  }
+  
+  .medical-modal .btn-secondary {
+    background-color: var(--neutral-medium);
+    border-color: var(--neutral-medium);
+    color: var(--neutral-dark);
+  }
+  
+  .medical-modal .btn-secondary:hover {
+    background-color: #D1D5DB;
+    border-color: #D1D5DB;
+  }
+  
+  /* Modal animation */
+  .fade.medical-modal .modal-dialog {
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  .fade.medical-modal.show .modal-dialog {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+
+  /* view appointments css  */
+  .approve-btn,
+  .reject-btn{
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+  }
+
+  .btn-success{
+    background-color: #38A169;
+    color: white;
+  }
+
+  .btn-div{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .view-back{
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    background-color: var(--primary-blue);
+    border-radius: 5px;
+    display: inline-block; 
+  }
+
