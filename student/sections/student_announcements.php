@@ -2,7 +2,6 @@
 session_start();
 require '../../db_connection.php';
 
-// Redirect if the student is not logged in
 if (!isset($_SESSION['student_uid'])) {
     header("Location: ../login/login.php");
     exit();
@@ -15,9 +14,8 @@ $studentStmt = $pdo->prepare("SELECT degree_id, batch_id FROM students WHERE id 
 $studentStmt->execute([$student_id]);
 $student = $studentStmt->fetch(PDO::FETCH_ASSOC);
 
-// Fetch announcements matching student's degree and batch
-$sql = "SELECT a.id, a.message, a.created_at, s.name AS subject_name,
-               l.name AS lecturer_name
+// Fetch announcements
+$sql = "SELECT a.message, a.created_at, s.name AS subject_name, l.name AS lecturer_name
         FROM announcements a
         JOIN subject_allocations sa ON a.subject_allocation_id = sa.id
         JOIN subjects s ON sa.subject_id = s.id
@@ -34,38 +32,25 @@ $announcements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student Announcements</title>
+    <title>Announcements</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="p-4 bg-light">
+<body class="bg-light p-4">
 <div class="container">
-    <h2 class="mb-4">Your Announcements</h2>
+    <h2 class="mb-4">Announcements</h2>
 
     <?php if (count($announcements) > 0): ?>
-        <div class="table-responsive mt-3">
-            <table class="table table-bordered table-hover bg-white">
-                <thead class="table-light">
-                <tr>
-                    <th>Message</th>
-                    <th>Subject</th>
-                    <th>Lecturer</th>
-                    <th>Date</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($announcements as $a): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($a['message']) ?></td>
-                        <td><?= htmlspecialchars($a['subject_name']) ?></td>
-                        <td><?= htmlspecialchars($a['lecturer_name']) ?></td>
-                        <td><?= date('Y-m-d H:i', strtotime($a['created_at'])) ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+        <?php foreach ($announcements as $a): ?>
+            <div class="card mb-3 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"><?= htmlspecialchars($a['subject_name']) ?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">By <?= htmlspecialchars($a['lecturer_name']) ?> on <?= date('F j, Y \a\t g:i A', strtotime($a['created_at'])) ?></h6>
+                    <p class="card-text mt-3"><?= nl2br(htmlspecialchars($a['message'])) ?></p>
+                </div>
+            </div>
+        <?php endforeach; ?>
     <?php else: ?>
-        <p class="text-muted">No announcements available for your group.</p>
+        <div class="alert alert-info">No announcements available for your group.</div>
     <?php endif; ?>
 </div>
 
