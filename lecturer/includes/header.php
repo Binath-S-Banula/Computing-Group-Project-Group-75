@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 require '../db_connection.php';
+date_default_timezone_set('Asia/Colombo');
 
 if (!isset($_SESSION['lecturer_uid'])) {
     header("Location: login/login.php");
