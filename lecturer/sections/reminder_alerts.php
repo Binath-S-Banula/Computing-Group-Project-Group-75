@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../db_connection.php';
+require '../../db_connection.php';
 
 if (!isset($_SESSION['lecturer_uid'])) {
     header("Location: login/login.php");
