@@ -1,0 +1,107 @@
+        :root {
+            /* Color palette - modern education theme */
+            --primary-blue: #4361ee;
+            --primary-light: #eef2ff;
+            --primary-dark: #3145c9;
+            --accent-purple: #7209b7;
+            --accent-light: #f1e6ff;
+            --neutral-light: #f9fafb;
+            --neutral-medium: #e5e7eb;
+            --neutral-dark: #4b5563;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --error-red: #ef4444;
+            --white: #ffffff;
+            --border-radius: 1rem;
+            --box-shadow: 0 10px 25px rgba(67, 97, 238, 0.07);
+            --transition: all 0.3s ease;
+        }
+        
+        .doctor-card {
+            border-radius: var(--border-radius);
+            border: none;
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(67, 97, 238, 0.15);
+        }
+        
+        .doctor-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+        
+        .doctor-name {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .doctor-card .card-body {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+        }
+        
+        .specialization-badge {
+            background-color: var(--accent-light);
+            color: var(--accent-purple);
+            border-radius: 2rem;
+            padding: 0.5rem 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .doctor-card .card-footer {
+            background-color: white;
+            border-top: 1px solid var(--neutral-medium);
+            padding: 1.25rem 1.5rem;
+        }
+        
+        .btn-appointment {
+            color: var(--primary-dark);
+            background-color: transparent;
+            border-color: var(--primary-dark);
+            padding: 0.6rem 1.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+        }
+        
+        .btn-appointment:hover {
+            color: var(--white);
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        
+        .no-doctors-alert {
+            background-color: var(--accent-light);
+            border: none;
+            color: var(--accent-purple);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+        }
+        
+        @media (max-width: 768px) {
+            .doctor-card {
+                margin-bottom: 1.5rem;
+            }
+        }
