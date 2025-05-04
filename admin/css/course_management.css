@@ -1,0 +1,172 @@
+        :root {
+            --primary-green: #1e8e4e;
+            --primary-light: #e6f7ed;
+            --primary-dark: #146c3c;
+            --accent-green: #34c774;
+            --neutral-light: #f8f9fa;
+            --neutral-medium: #e2e3e5;
+            --neutral-dark: #6c757d;
+            --white: #ffffff;
+            --danger: #dc3545;
+            --danger-light: #f8d7da;
+            --danger-dark: #842029;
+            --warning: #ffc107;
+            --warning-light: #fff3cd;
+            --warning-dark: #664d03;
+            --border-radius: 0.75rem;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        .dashboard-header {
+            background-color: var(--primary-green);
+            border-radius: var(--border-radius);
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--box-shadow);
+        }
+        
+        .dashboard-title {
+            color: var(--white);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .dashboard-subtitle {
+            color: var(--neutral-medium);
+            font-size: 0.95rem;
+        }
+
+        .card {
+            background-color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 30px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 24px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .degrees-icon {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .batches-icon {
+            background-color: var(--warning-light);
+            color: var(--warning-dark);
+        }
+
+        .subjects-icon {
+            background-color: var(--danger-light);
+            color: var(--danger-dark);
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--neutral-dark);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .degrees-number {
+            color: var(--primary-green);
+        }
+
+        .batches-number {
+            color: var(--warning);
+        }
+
+        .subjects-number {
+            color: var(--danger);
+        }
+
+        .card-text {
+            color: var(--neutral-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            text-decoration: none;
+            display: block;
+        }
+
+        .btn-card {
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-degrees {
+            background-color: var(--primary-green);
+            border-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-degrees:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            box-shadow: 0 4px 10px rgba(30, 142, 78, 0.3);
+            color: var(--white);
+        }
+
+        .btn-batches {
+            background-color: var(--warning);
+            border-color: var(--warning);
+            color: var(--warning-dark);
+        }
+
+        .btn-batches:hover {
+            background-color: #e6ac00;
+            border-color: #e6ac00;
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
+            color: var(--warning-dark);
+        }
+
+        .btn-subjects {
+            background-color: var(--danger);
+            border-color: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-subjects:hover {
+            background-color: var(--danger-dark);
+            border-color: var(--danger-dark);
+            box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+            color: var(--white);
+        }
+ 
