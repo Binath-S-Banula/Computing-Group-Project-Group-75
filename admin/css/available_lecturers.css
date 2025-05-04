@@ -1,0 +1,76 @@
+       :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --tertiary-color: #e8f5e9;
+            --text-color: #212121;
+        }
+        
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1b5e20;
+            border-color: #1b5e20;
+        }
+        
+        .form-label {
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .form-select:focus, .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.25);
+        }
+        
+        .lecturer-item {
+            background-color: var(--tertiary-color);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .lecturer-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .view-btn {
+            color: var(--primary-color);
+        }
+        
+        .view-btn:hover {
+            color: #1b5e20;
+        }
+        
+        .result-count {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .no-results {
+            color: #d32f2f;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
