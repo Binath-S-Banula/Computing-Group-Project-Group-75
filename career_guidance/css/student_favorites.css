@@ -1,0 +1,172 @@
+        :root {
+            --primary-green: #1e8e4e;
+            --primary-light: #e6f7ed;
+            --primary-dark: #146c3c;
+            --accent-green: #34c774;
+            --neutral-light: #f8f9fa;
+            --neutral-medium: #e2e3e5;
+            --neutral-dark: #6c757d;
+            --white: #ffffff;
+            --border-radius: 0.75rem;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--neutral-light);
+            color: #333;
+        }
+
+        .navbar {
+            background-color: var(--primary-green);
+            box-shadow: var(--box-shadow);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .page-header {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-green);
+        }
+
+        .page-title {
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card {
+            border: none;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background-color: var(--primary-green);
+            color: var(--white);
+            font-weight: 600;
+            padding: 1rem 1.25rem;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-date {
+            font-size: 0.9rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            background-color: var(--white);
+        }
+
+        .student-count {
+            display: inline-block;
+            background-color: var(--accent-green);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .student-list {
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--neutral-medium);
+        }
+
+        .empty-state {
+            padding: 2rem;
+            text-align: center;
+            color: var(--neutral-dark);
+            background-color: var(--primary-light);
+            border-radius: var(--border-radius);
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+        }
+
+        .list-group-item {
+            transition: var(--transition);
+            border-left: 0;
+            border-right: 0;
+            padding: 0.75rem 1.25rem;
+        }
+
+        .list-group-item:first-child {
+            border-top: 0;
+        }
+
+        .list-group-item:last-child {
+            border-bottom: 0;
+        }
+
+        .list-group-item:hover {
+            background-color: var(--primary-light);
+        }
+
+        .student-id {
+            color: var(--neutral-dark);
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1.5rem 0;
+            color: var(--neutral-dark);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .page-header {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .card {
+                margin-bottom: 1rem;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            
+            .card-date {
+                align-self: flex-start;
+            }
+        }
