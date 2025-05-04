@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload CV - Career Guidance Unit</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Reuse the same navbar from Career guidance.html -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        // ...existing navbar code...
+    </nav>
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body p-5">
+                        <h2 class="text-center mb-4">Upload Your CV</h2>
+                        <form action="http://localhost/computer grup/Computing-Group-Project-Group-75/careerGcv.php" method="post"  id="cvUploadForm"  class="needs-validation">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full Name</label>
+                                <input    name="FullName" type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input   name="EmailAddress" type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input  name="phone" type="text" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cv" class="form-label">Upload CV (PDF, DOC, DOCX)</label>
+                                <input  name="UploadCV" type="file" class="form-control" id="cv" accept=".pdf,.doc,.docx" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Additional Message (Optional)</label>
+                                <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100 py-2">Submit CV</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reuse the same footer from Career guidance.html -->
+    <footer class="footer">
+        // ...existing footer code...
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!--script>
+        document.getElementById('cvUploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Simulate form submission delay
+            setTimeout(() => {
+                window.location.href = 'thank-you.html';
+            }, 1000);
+        });
+    </script-->
+</body>
+</html>
