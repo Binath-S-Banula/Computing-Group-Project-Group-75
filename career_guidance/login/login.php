@@ -30,6 +30,125 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Admin Login - Career Guidance</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #1e8e4e;
+            --primary-light: #e6f7ed;
+            --primary-dark: #146c3c;
+            --accent-green: #34c774;
+            --neutral-light: #f8f9fa;
+            --neutral-medium: #e2e3e5;
+            --neutral-dark: #6c757d;
+            --white: #ffffff;
+            --border-radius: 0.75rem;
+            --box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--neutral-light);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 540px;
+        }
+
+        h3 {
+            color: var(--primary-dark);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-green);
+            border-radius: 2px;
+        }
+
+        form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-label {
+            color: var(--primary-dark);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border: 1px solid var(--neutral-medium);
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-green);
+            background-color: var(--primary-light);
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem !important;
+        }
+
+        .btn-success {
+            background-color: var(--primary-green);
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .btn-success:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .alert {
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .alert-success {
+            background-color: var(--primary-light);
+            border-color: var(--primary-green);
+            color: var(--primary-dark);
+        }
+
+        .alert-danger {
+            border-left: 4px solid #dc3545;
+        }
+    </style>
 </head>
 <body class="bg-light">
 <div class="container mt-5 col-md-6">
@@ -50,7 +169,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" required class="form-control">
         </div>
         <button type="submit" class="btn btn-success">Login</button>
-        <a href="signup.php" class="btn btn-link">Create an account</a>
     </form>
 </div>
 </body>
