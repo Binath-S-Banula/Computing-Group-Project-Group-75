@@ -44,18 +44,7 @@ $lecturer_name = $_SESSION['lecturer_name'];
             <div class="sidebar-header">
                 <i class="bi bi-mortarboard-fill me-2"></i> Lecturer Portal
             </div>
-            <div class="p-3">
-                <div class="d-flex align-items-center mb-3">
-                    <div class="user-avatar">
-                        <?= strtoupper(substr($lecturer_name, 0, 1)) ?>
-                    </div>
-                    <div>
-                        <div class="user-name"><?= htmlspecialchars($lecturer_name) ?></div>
-                        <small class="text-muted">ID: <?= htmlspecialchars($lecturer_id) ?></small>
-                    </div>
-                </div>
-            </div>
-            <hr class="my-2">
+
             <ul class="nav nav-pills flex-column mb-auto px-2">
                 <li class="nav-item">
                     <a href="lecturer_dashboard.php" class="nav-link <?= $current_page == 'lecturer_dashboard.php' ? 'active' : '' ?>">
@@ -65,6 +54,11 @@ $lecturer_name = $_SESSION['lecturer_name'];
                 <li>
                     <a href="lecturer_timetable.php" class="nav-link <?= $current_page == 'lecturer_timetable.php' ? 'active' : '' ?>">
                         <i class="bi bi-calendar3"></i>Timetable
+                    </a>
+                </li>
+                <li>
+                    <a href="lecturer_set_reminders.php" class="nav-link <?= $current_page == 'lecturer_set_reminders.php' ? 'active' : '' ?>">
+                        <i class="bi bi-person-lines-fill"></i>Set Reminders
                     </a>
                 </li>
                 <li>
