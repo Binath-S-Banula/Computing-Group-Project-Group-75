@@ -1,5 +1,4 @@
 <?php
-session_start();
 require '../vendor/autoload.php';
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
@@ -41,12 +40,12 @@ $spreadsheet = IOFactory::load($tempFile);
 $worksheet = $spreadsheet->getActiveSheet();
 
 // Today
-// $today = date('l');
-$today = 'Thursday';
+$today = date('l');
+// $today = 'Thursday'; 
 
 // Get current time 
 // $currentTime = date('H:i');
-$currentTime = '12:00';
+$currentTime = '9:30';
 
 // Find column for today
 $dayCol = null;
@@ -205,70 +204,146 @@ $debug = [
 ];
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Current Lecture</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f0f4f8;
-        }
-        .container {
-            margin-top: 100px;
-            max-width: 600px;
-        }
-        .card {
-            text-align: center;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .lecture-subject {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .lecture-hall {
-            font-size: 16px;
-            color: #555;
-            margin-top: 10px;
-        }
-        .lecture-time {
-            font-size: 18px;
-            color: #555;
-            margin-top: 10px;
-        }
-        .no-lecture {
-            font-size: 20px;
-            color: #888;
-        }
-        .debug-info {
-            margin-top: 20px;
-            font-size: 12px;
-            color: #888;
-            text-align: left;
-            display: none; /* Set to "block" to show debug info */
-        }
-    </style>
-</head>
-<body>
-<div class="container">
-    <div class="card">
+
+        
         <?php if ($foundLecture): ?>
-            <div class="lecture-subject"><?php echo htmlspecialchars($currentLecture['subject']); ?></div>
-            <div class="lecture-hall"><?php echo htmlspecialchars($currentLecture['hall']); ?></div>
-            <div class="lecture-time"><?php echo $currentLecture['timeFormatted']; ?></div>
+            <!-- Current Lecture Card -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Current Lecture ( <?php echo $today; ?> )</span>
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="lecture-card-body">
+                    <div class="lecture-subject"><?php echo htmlspecialchars($currentLecture['subject']); ?></div>
+                    
+                    <div class="lecture-info">
+                        <i class="fas fa-map-marker-alt info-icon"></i>
+                        <div class="lecture-hall"><?php echo htmlspecialchars($currentLecture['hall']); ?></div>
+                    </div>
+                    
+                    <div class="lecture-info">
+                        <i class="far fa-clock info-icon"></i>
+                        <div class="lecture-time"><?php echo $currentLecture['timeFormatted']; ?></div>
+                    </div>
+                    
+                    <?php
+                    // Calculate lecture progress
+                    $startObj = new DateTime($currentLecture['start24']);
+                    $endObj = new DateTime($currentLecture['end24']);
+                    $currentObj = $currentDateTime;
+                    
+                    $totalDuration = $startObj->diff($endObj)->h * 60 + $startObj->diff($endObj)->i;
+                    $elapsedDuration = $startObj->diff($currentObj)->h * 60 + $startObj->diff($currentObj)->i;
+                    
+                    $progressPercent = min(100, max(0, ($elapsedDuration / $totalDuration) * 100));
+                    $remainingMinutes = $totalDuration - $elapsedDuration;
+                    ?>
+                    
+                    <div class="progress-container">
+                        <div class="progress-label">
+                            <span>Lecture Progress</span>
+                            <span><?php echo round($progressPercent); ?>%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: <?php echo $progressPercent; ?>%" 
+                                aria-valuenow="<?php echo $progressPercent; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="text-end mt-2">
+                            <small class="text-muted"><?php echo $remainingMinutes; ?> minutes remaining</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <?php
+            // Find next lecture
+            $upcomingLectures = [];
+            foreach ($lectures as $lecture) {
+                $lectureStart = new DateTime($lecture['start24']);
+                if ($lectureStart > $currentDateTime) {
+                    $upcomingLectures[] = $lecture;
+                }
+            }
+
+            
+            if (!empty($upcomingLectures)): ?>
+                <div class="next-lecture-info">
+                    <div class="next-lecture-title">
+                        <i class="fas fa-arrow-right me-2"></i>Upcoming Lectures
+                    </div>
+                    <?php foreach ($upcomingLectures as $lecture): ?>
+                        <div style="padding:15px;">
+                            <div class="fw-bold mt-2"><?php echo htmlspecialchars($lecture['subject']); ?></div>
+                            <div class="d-flex justify-content-between">
+                                <div class="text-muted"><?php echo htmlspecialchars($lecture['hall']); ?></div>
+                                <div class="text-muted"><?php echo $lecture['timeFormatted']; ?></div>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php else: ?>
+                <div class="text-muted mt-2">No more lectures scheduled for today</div>
+            <?php endif; ?>
+
+            
         <?php else: ?>
-            <div class="no-lecture">No lecture is going on right now.</div>
+            <!-- No Lecture Card -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Class Schedule</span>
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div class="no-lecture-card-body">
+                    <i class="fas fa-coffee no-lecture-icon"></i>
+                    <div class="no-lecture">No lecture is going on right now</div>
+                    
+                    <?php
+                    // Find next lecture
+                    $nextLecture = null;
+                    foreach ($lectures as $lecture) {
+                        $lectureStart = new DateTime($lecture['start24']);
+                        if ($lectureStart > $currentDateTime) {
+                            $nextLecture = $lecture;
+                            break;
+                        }
+                    }
+                    
+                    if ($nextLecture): ?>
+                        <div class="next-lecture-info">
+                            <div class="next-lecture-title">
+                                <i class="fas fa-arrow-right me-2"></i>Next Lecture
+                            </div>
+                            <div class="fw-bold"><?php echo htmlspecialchars($nextLecture['subject']); ?></div>
+                            <div class="d-flex justify-content-between mt-1">
+                                <div class="text-muted"><?php echo htmlspecialchars($nextLecture['hall']); ?></div>
+                                <div class="text-muted"><?php echo $nextLecture['timeFormatted']; ?></div>
+                            </div>
+                            <?php
+                            // Calculate time until next lecture
+                            $timeToNext = $currentDateTime->diff(new DateTime($nextLecture['start24']));
+                            $hoursToNext = $timeToNext->h;
+                            $minutesToNext = $timeToNext->i;
+                            
+                            if ($hoursToNext > 0 || $minutesToNext > 0) {
+                                echo '<div class="text-end mt-2"><small class="text-muted">Starts in ';
+                                if ($hoursToNext > 0) {
+                                    echo $hoursToNext . ' hour' . ($hoursToNext > 1 ? 's' : '') . ' ';
+                                }
+                                if ($minutesToNext > 0) {
+                                    echo $minutesToNext . ' minute' . ($minutesToNext > 1 ? 's' : '');
+                                }
+                                echo '</small></div>';
+                            }
+                            ?>
+                        </div>
+                    <?php else: ?>
+                        <div class="text-muted mt-2">No more lectures scheduled for today</div>
+                    <?php endif; ?>
+                </div>
+            </div>
         <?php endif; ?>
-        <div class="mt-4 text-muted">Time: <?php echo $currentTime; ?> | Day: <?php echo $today; ?></div>
-    </div>
-    
-    <div class="debug-info">
-        <pre><?php echo json_encode($debug, JSON_PRETTY_PRINT); ?></pre>
-    </div>
-</div>
-</body>
-</html>
+        
+        
+        <div class="debug-info">
+            <pre><?php echo json_encode($debug, JSON_PRETTY_PRINT); ?></pre>
+        </div>
