@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2025 at 05:28 AM
+-- Generation Time: May 05, 2025 at 05:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,6 +39,29 @@ CREATE TABLE `admins` (
 
 INSERT INTO `admins` (`id`, `username`, `password`) VALUES
 (1, 'admin30172', '$2y$10$tzuQJ3tNOVA6yf842BfoKe7lsVAPfE2soOVda1KxvBm/1pfVIJ9Vy');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `lecturer_id` int(11) NOT NULL,
+  `subject_allocation_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `created_at` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `lecturer_id`, `subject_allocation_id`, `message`, `created_at`) VALUES
+(1, 1, 12, 'lecture cancelled', '2025-05-05 03:14:19'),
+(2, 1, 1, 'lecture cancelled', '2025-05-05 03:14:19'),
+(3, 1, 11, 'lecture cancelled', '2025-05-05 03:14:19');
 
 -- --------------------------------------------------------
 
@@ -360,7 +383,13 @@ CREATE TABLE `favorite_events` (
 --
 
 INSERT INTO `favorite_events` (`id`, `student_id`, `event_id`, `created_at`) VALUES
-(6, 1, 4, '2025-05-04 07:27:10');
+(6, 1, 4, '2025-05-04 07:27:10'),
+(7, 3, 4, '2025-05-04 09:31:17'),
+(8, 3, 5, '2025-05-04 09:31:27'),
+(9, 4, 4, '2025-05-04 09:31:37'),
+(10, 4, 3, '2025-05-04 09:31:39'),
+(11, 4, 5, '2025-05-04 09:31:41'),
+(12, 5, 3, '2025-05-04 09:31:53');
 
 -- --------------------------------------------------------
 
@@ -391,6 +420,26 @@ INSERT INTO `lecturers` (`id`, `lecturer_id`, `name`, `password`, `faculty_id`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lecturer_notes`
+--
+
+CREATE TABLE `lecturer_notes` (
+  `lecturer_id` int(11) NOT NULL,
+  `note` text DEFAULT NULL,
+  `created_at` datetime DEFAULT current_timestamp(),
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lecturer_notes`
+--
+
+INSERT INTO `lecturer_notes` (`lecturer_id`, `note`, `created_at`, `updated_at`) VALUES
+(1, 'i have a special meeting', '2025-05-05 01:37:12', '2025-05-05 01:46:25');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lecturer_notifications`
 --
 
@@ -411,6 +460,30 @@ INSERT INTO `lecturer_notifications` (`id`, `lecturer_id`, `proposal_id`, `statu
 (2, 3, 1, 'pending', '2025-04-22 06:11:53'),
 (3, 3, 4, 'pending', '2025-04-24 20:47:29'),
 (4, 1, 6, 'pending', '2025-04-24 20:59:34');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lecturer_reminders`
+--
+
+CREATE TABLE `lecturer_reminders` (
+  `id` int(11) NOT NULL,
+  `lecturer_id` int(11) NOT NULL,
+  `note` text NOT NULL,
+  `reminder_date` date NOT NULL,
+  `reminder_time` time NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `lecturer_reminders`
+--
+
+INSERT INTO `lecturer_reminders` (`id`, `lecturer_id`, `note`, `reminder_date`, `reminder_time`, `created_at`) VALUES
+(1, 1, 'i have to update lecturer notes', '2025-05-05', '10:00:00', '2025-05-04 20:49:13'),
+(2, 1, 'i have a special meeting', '2025-05-09', '12:00:00', '2025-05-04 20:51:38'),
+(3, 1, 'i have a meeting foss', '2025-05-05', '14:00:00', '2025-05-04 20:59:28');
 
 -- --------------------------------------------------------
 
@@ -533,7 +606,11 @@ INSERT INTO `subjects` (`id`, `name`, `code`, `faculty_id`) VALUES
 (3, 'Digital Marketing 101', 'DM101', 2),
 (4, 'Principles of Marketing', 'MKT101', 2),
 (5, 'Basic Electrical Engineering', 'EE101', 3),
-(10, 'Electronics I', 'EE202', 3);
+(10, 'Electronics I', 'EE202', 3),
+(12, 'python', 'SE101', 1),
+(13, 'java', 'SE102', 1),
+(14, 'statistics', 'CS103', 1),
+(15, 'Web Development', 'SE103', 1);
 
 -- --------------------------------------------------------
 
@@ -560,7 +637,10 @@ INSERT INTO `subject_allocations` (`id`, `subject_id`, `lecturer_id`, `degree_id
 (4, 4, 4, 3, 3),
 (5, 5, 5, 4, 3),
 (6, 10, 5, 4, 3),
-(7, 10, 5, 4, 4);
+(7, 10, 5, 4, 4),
+(10, 12, 1, 2, 3),
+(11, 13, 1, 2, 4),
+(12, 14, 1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -602,6 +682,13 @@ INSERT INTO `timetable_proposals` (`id`, `lecturer_id`, `subject_id`, `sheet_id`
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
+
+--
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `subject_allocation_id` (`subject_allocation_id`);
 
 --
 -- Indexes for table `batches`
@@ -699,12 +786,25 @@ ALTER TABLE `lecturers`
   ADD KEY `faculty_id` (`faculty_id`);
 
 --
+-- Indexes for table `lecturer_notes`
+--
+ALTER TABLE `lecturer_notes`
+  ADD PRIMARY KEY (`lecturer_id`);
+
+--
 -- Indexes for table `lecturer_notifications`
 --
 ALTER TABLE `lecturer_notifications`
   ADD PRIMARY KEY (`id`),
   ADD KEY `lecturer_id` (`lecturer_id`),
   ADD KEY `proposal_id` (`proposal_id`);
+
+--
+-- Indexes for table `lecturer_reminders`
+--
+ALTER TABLE `lecturer_reminders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `lecturer_id` (`lecturer_id`);
 
 --
 -- Indexes for table `medical_admins`
@@ -766,6 +866,12 @@ ALTER TABLE `timetable_proposals`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -843,7 +949,7 @@ ALTER TABLE `faculties`
 -- AUTO_INCREMENT for table `favorite_events`
 --
 ALTER TABLE `favorite_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `lecturers`
@@ -855,6 +961,12 @@ ALTER TABLE `lecturers`
 -- AUTO_INCREMENT for table `lecturer_notifications`
 --
 ALTER TABLE `lecturer_notifications`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `lecturer_reminders`
+--
+ALTER TABLE `lecturer_reminders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -885,13 +997,13 @@ ALTER TABLE `student_timetables`
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `subject_allocations`
 --
 ALTER TABLE `subject_allocations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `timetable_proposals`
@@ -902,6 +1014,12 @@ ALTER TABLE `timetable_proposals`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD CONSTRAINT `announcements_ibfk_1` FOREIGN KEY (`subject_allocation_id`) REFERENCES `subject_allocations` (`id`);
 
 --
 -- Constraints for table `club_events`
@@ -930,11 +1048,23 @@ ALTER TABLE `lecturers`
   ADD CONSTRAINT `lecturers_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `faculties` (`id`);
 
 --
+-- Constraints for table `lecturer_notes`
+--
+ALTER TABLE `lecturer_notes`
+  ADD CONSTRAINT `lecturer_notes_ibfk_1` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `lecturer_notifications`
 --
 ALTER TABLE `lecturer_notifications`
   ADD CONSTRAINT `lecturer_notifications_ibfk_1` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`),
   ADD CONSTRAINT `lecturer_notifications_ibfk_2` FOREIGN KEY (`proposal_id`) REFERENCES `timetable_proposals` (`id`);
+
+--
+-- Constraints for table `lecturer_reminders`
+--
+ALTER TABLE `lecturer_reminders`
+  ADD CONSTRAINT `lecturer_reminders_ibfk_1` FOREIGN KEY (`lecturer_id`) REFERENCES `lecturers` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `student_timetables`
