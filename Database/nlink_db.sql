@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2025 at 05:40 AM
+-- Generation Time: May 05, 2025 at 10:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -38,7 +38,8 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `username`, `password`) VALUES
-(1, 'admin30172', '$2y$10$tzuQJ3tNOVA6yf842BfoKe7lsVAPfE2soOVda1KxvBm/1pfVIJ9Vy');
+(1, 'admin30172', '$2y$10$tzuQJ3tNOVA6yf842BfoKe7lsVAPfE2soOVda1KxvBm/1pfVIJ9Vy'),
+(2, 'adminp', '$2y$10$uPN4eaChjALAvjZ5KPAAYeYYLzttr3lzgUiHKduYXWBifg3JDMza.');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,8 @@ CREATE TABLE `career_admins` (
 --
 
 INSERT INTO `career_admins` (`id`, `username`, `email`, `password`) VALUES
-(1, 'careeradmin001', 'careeradmin@email.com', '$2y$10$TZzNfEuLdgn9BAuDaVqIz.VJGberq.tsqd.I81Ds7QT0WgiWwTzdm');
+(1, 'careeradmin001', 'careeradmin@email.com', '$2y$10$TZzNfEuLdgn9BAuDaVqIz.VJGberq.tsqd.I81Ds7QT0WgiWwTzdm'),
+(2, 'cadmin', 'careeradmin@email.com', '$2y$10$vq/Tio9clB5G/t9iX2jIlOlkWlksCvNuG8QdmJ3pQxd3gAofSCur2');
 
 -- --------------------------------------------------------
 
@@ -239,7 +241,8 @@ INSERT INTO `club_members` (`id`, `student_id`, `club_id`, `join_date`, `status`
 (31, 1, 1, '2025-04-30 01:07:29', 'active'),
 (32, 5, 1, '2025-04-30 02:29:31', 'active'),
 (33, 4, 1, '2025-04-30 03:12:43', 'active'),
-(35, 1, 2, '2025-05-03 15:54:26', 'active');
+(35, 1, 2, '2025-05-03 15:54:26', 'active'),
+(36, 6, 1, '2025-05-05 13:58:51', 'active');
 
 -- --------------------------------------------------------
 
@@ -415,7 +418,9 @@ INSERT INTO `lecturers` (`id`, `lecturer_id`, `name`, `password`, `faculty_id`, 
 (2, '3001', 'mohomad faruz', '$2y$10$iz9/2hnfKitS5XtumyfGl.dudR8LY9bDACjBQbcenCiLIIneDDRq6', 2, '16hkIqFTAXT5I2ttHYZX4Hk-6smDokS4q'),
 (3, '31111', 'bella ferdo', '$2y$10$G1X0HvdvGiER7NwfOwTDHub861tOBwstu3R.BcDriSuXoO/WfjLcm', 1, '1Gh8-JHPa8hAoFdJRBiARVqWjIFttB8nm'),
 (4, '30115', 'iris elisebeth', '$2y$10$dbFqVLYqYM0xCfc5va8vgOnOmROauZW2SYFgy7btP9xIfjobOWIbe', 2, ''),
-(5, '30000', 'rajitha iresh', '$2y$10$KBWXffEA2dw.B5UqcVuFHeKHBHvGOtQ/kDytUx.9NxPhuSCT3yVdG', 3, NULL);
+(5, '30000', 'rajitha iresh', '$2y$10$KBWXffEA2dw.B5UqcVuFHeKHBHvGOtQ/kDytUx.9NxPhuSCT3yVdG', 3, NULL),
+(6, '50000', 'alex fredo', '$2y$10$bs3vlXqElvJicII0WhJXseSTZPu84QiLGrfXiVi97kQeyAC49Kt2i', 2, NULL),
+(7, 'lecturer', 'sam perera', '$2y$10$fgunSm9Che0dLJz8rCW2teX/8ykPVp1zkwWu6GBfji/kSnBKYDEFy', 1, '15LCqs6jIiOk0pKBQaZxmRTeE3SI_8Kit');
 
 -- --------------------------------------------------------
 
@@ -481,8 +486,8 @@ CREATE TABLE `lecturer_reminders` (
 --
 
 INSERT INTO `lecturer_reminders` (`id`, `lecturer_id`, `note`, `reminder_date`, `reminder_time`, `created_at`) VALUES
-(1, 1, 'i have to update lecturer notes', '2025-05-05', '10:00:00', '2025-05-04 20:49:13'),
-(2, 1, 'i have a special meeting', '2025-05-09', '12:00:00', '2025-05-04 20:51:38'),
+(1, 1, 'i have to update lecturer notes', '2025-05-19', '12:00:00', '2025-05-04 20:49:13'),
+(2, 1, 'i have a special meeting', '2025-05-05', '12:00:00', '2025-05-04 20:51:38'),
 (3, 1, 'i have a meeting foss', '2025-05-05', '14:00:00', '2025-05-04 20:59:28');
 
 -- --------------------------------------------------------
@@ -502,7 +507,8 @@ CREATE TABLE `medical_admins` (
 --
 
 INSERT INTO `medical_admins` (`id`, `admin_id`, `password`) VALUES
-(1, 'medical30172', '$2y$10$tzuQJ3tNOVA6yf842BfoKe7lsVAPfE2soOVda1KxvBm/1pfVIJ9Vy');
+(1, 'medical30172', '$2y$10$tzuQJ3tNOVA6yf842BfoKe7lsVAPfE2soOVda1KxvBm/1pfVIJ9Vy'),
+(2, 'medicalc', '$2y$10$ZF4K0kXYrQMCTBpjv05iwuRYDz5lZugZvCoP2Ff2Jn.wekh88ZM8S');
 
 -- --------------------------------------------------------
 
@@ -558,7 +564,8 @@ INSERT INTO `students` (`id`, `student_id`, `name`, `email`, `faculty_id`, `degr
 (1, '1111', 'sandun fernando', 'sandun@email.com', 1, 1, 3, '$2y$10$2L5810YNTuzZDFRLJ8B7huzSpEqC5hzZdXFFvPrhowKGkk5tvcEaS'),
 (3, '2222', 'iris elisebeth', 'ant@email.com', 2, 3, 3, '$2y$10$oo5OF4V7Kp6Sn9KiMnEQnu5HtZgH3vo.VAeQV0USYxYcL5v/mhux2'),
 (4, '3333', 'john smith', 'john@email.com', 3, 4, 3, '$2y$10$jcpFBn6KwwUBns.HPbSUVulOadGEHol4aS1w61m1C15gcjdoqJwFe'),
-(5, '4444', 'nethmi dias', 'nethmi@email.com', 2, 3, 3, '$2y$10$ohFjOdv6EIhfQe2ZLFEO2.jXTW7NLlmM4me9x52c72/UvkBNNzSaS');
+(5, '4444', 'nethmi dias', 'nethmi@email.com', 2, 3, 3, '$2y$10$ohFjOdv6EIhfQe2ZLFEO2.jXTW7NLlmM4me9x52c72/UvkBNNzSaS'),
+(6, 'student', 'kavindu gunathilaka', 'kavindu@email.com', 1, 1, 3, '$2y$10$15eIQvcWiRnP5R.3lHXagOVlLKJLRfsmdxIfPjg1fABrcfUwyStcq');
 
 -- --------------------------------------------------------
 
@@ -640,7 +647,11 @@ INSERT INTO `subject_allocations` (`id`, `subject_id`, `lecturer_id`, `degree_id
 (7, 10, 5, 4, 4),
 (10, 12, 1, 2, 3),
 (11, 13, 1, 2, 4),
-(12, 14, 1, 1, 2);
+(12, 14, 1, 1, 2),
+(13, 15, 7, 1, 1),
+(14, 1, 7, 1, 1),
+(15, 2, 7, 1, 1),
+(16, 12, 7, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -865,13 +876,13 @@ ALTER TABLE `timetable_proposals`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `batches`
@@ -883,7 +894,7 @@ ALTER TABLE `batches`
 -- AUTO_INCREMENT for table `career_admins`
 --
 ALTER TABLE `career_admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `career_events`
@@ -913,7 +924,7 @@ ALTER TABLE `club_event_registrations`
 -- AUTO_INCREMENT for table `club_members`
 --
 ALTER TABLE `club_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `degrees`
@@ -955,7 +966,7 @@ ALTER TABLE `favorite_events`
 -- AUTO_INCREMENT for table `lecturers`
 --
 ALTER TABLE `lecturers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `lecturer_notifications`
@@ -967,13 +978,13 @@ ALTER TABLE `lecturer_notifications`
 -- AUTO_INCREMENT for table `lecturer_reminders`
 --
 ALTER TABLE `lecturer_reminders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `medical_admins`
 --
 ALTER TABLE `medical_admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `medical_appointments`
@@ -985,7 +996,7 @@ ALTER TABLE `medical_appointments`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `student_timetables`
@@ -1003,7 +1014,7 @@ ALTER TABLE `subjects`
 -- AUTO_INCREMENT for table `subject_allocations`
 --
 ALTER TABLE `subject_allocations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `timetable_proposals`
