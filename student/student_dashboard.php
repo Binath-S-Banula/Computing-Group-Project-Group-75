@@ -1,9 +1,11 @@
 <?php include 'includes/header.php'; ?>
 
-    <!-- Welcome Card -->
-    <div class="dashboard-title">
-        <h2>Welcome back, <?= htmlspecialchars($student_name) ?>!</h2>
-        <p>check your timetable, manage appointments, and reach out when you need support.</p>
-    </div>
+<link rel="stylesheet" href="css/current_lecture.css">
+
+
+    <!-- display the current ongoing lecture  -->
+    <?php include 'current_lecture.php'; ?>
+
+
 
 <?php include 'includes/footer.php'; ?>

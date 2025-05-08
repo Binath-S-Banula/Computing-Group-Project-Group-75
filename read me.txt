@@ -1,0 +1,23 @@
+You need to install PhpSpreadsheet to the project first
+
+## PhpSpreadsheet Installation Guide
+
+Follow these steps to install PhpSpreadsheet in your PHP project.
+
+1. Install Composer (if not already installed): https://getcomposer.org/download/
+
+2. Open your terminal or command prompt and navigate to your project directory:
+   cd /path/to/your-project
+
+3. Install PhpSpreadsheet via Composer:
+   composer require phpoffice/phpspreadsheet
+
+4. (For XAMPP users) Enable required PHP extensions in php.ini:
+   - Open xampp/php/php.ini
+   - Make sure the following lines are uncommented (remove the leading semicolon if present):
+     extension=zip  
+     extension=xml  
+     extension=gd  
+     extension=mbstring  
+     extension=fileinfo  
+   - After making changes, restart Apache from the XAMPP Control Panel.
